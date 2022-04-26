@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class Home extends Component {
   render() {
     return (
-      <div>
+      <div className="search">
         <label htmlFor="input-pesquisa">
           <input
             id="input-pesquisa"
