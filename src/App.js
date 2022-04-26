@@ -1,10 +1,8 @@
 import React from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
-
 import Home from './pages/Home';
-
+import shoppingCart from './pages/ShoppingCart';
 import * as api from './services/api';
-
 import './App.css';
 
 function App() {
@@ -17,6 +15,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={ Home } />
+        <Route path="/shoppingCart" component={ shoppingCart } />
       </Switch>
     </BrowserRouter>
   );

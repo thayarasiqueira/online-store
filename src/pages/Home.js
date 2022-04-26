@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
   render() {
@@ -11,6 +12,8 @@ class Home extends Component {
             name="input-pesquisa"
           />
         </label>
+
+        <Link data-testid="shopping-cart-button" to="/shoppingCart"> </Link>
         <p
           data-testid="home-initial-message"
         >
