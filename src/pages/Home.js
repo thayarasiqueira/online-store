@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import Card from '../components/Card';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
   constructor() {
@@ -27,7 +28,7 @@ class Home extends Component {
   render() {
     const { productList } = this.state;
     return (
-      <div>
+      <div className="search">
         <label htmlFor="input-pesquisa">
           <input
             data-testid="query-input"
@@ -37,6 +38,8 @@ class Home extends Component {
             onChange={ this.handleInputChange }
           />
         </label>
+
+        <Link data-testid="shopping-cart-button" to="/shoppingCart"> </Link>
         <p
           data-testid="home-initial-message"
         >
