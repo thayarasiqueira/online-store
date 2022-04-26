@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Home extends Component {
   render() {
     return (
-      <div>
+      <div className="search">
         <label htmlFor="input-pesquisa">
           <input
             id="input-pesquisa"

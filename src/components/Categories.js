@@ -19,7 +19,8 @@ class Categories extends Component {
   render() {
     const { categories } = this.state;
     return (
-      <div>
+      <div className="categories">
+        <h3>Categorias</h3>
         <ul>
           {categories !== ''
             && categories.map((item) => (
