@@ -1,10 +1,7 @@
 import React from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
-
 import Home from './pages/Home';
-
 import * as api from './services/api';
-
 import './App.css';
 
 function App() {
