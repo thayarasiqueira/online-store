@@ -1,6 +1,7 @@
 import React from 'react';
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import Home from './components/Home';
 import * as api from './services/api';
-
 import './App.css';
 
 function App() {
@@ -10,9 +11,11 @@ function App() {
   });
 
   return (
-    <div className="App">
-      Teste
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={ Home } />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
