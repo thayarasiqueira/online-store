@@ -8,7 +8,7 @@ class Home extends Component {
     this.state = {
       search: '',
       productList: [],
-    }
+    };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
@@ -17,10 +17,10 @@ class Home extends Component {
     this.setState({ [name]: value });
   }
 
-handleSearch = async () => {
+  handleSearch = async () => {
     const { search } = this.state;
     const listProducts = await getProductsFromCategoryAndQuery(search);
-    const { results } = listProducts
+    const { results } = listProducts;
     this.setState({ productList: results });
   }
 
@@ -43,12 +43,19 @@ handleSearch = async () => {
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
         <ul />
-        <button data-testid="query-button" type="button" onClick={ this.handleSearch }>Buscar</button>
-        { productList.map((products) =>(
+        <button
+          data-testid="query-button"
+          type="button"
+          onClick={ this.handleSearch }
+        >
+          Buscar
+        </button>
+        { productList.map((products) => (
           <Card
-          title={products.title}
-          price={products.price}
-          image={products.thumbnail}
+            key={ products.id }
+            title={ products.title }
+            price={ products.price }
+            image={ products.thumbnail }
           />
         ))}
       </div>);
