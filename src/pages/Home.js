@@ -1,33 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { getProductsFromCategoryAndQuery } from '../services/api';
+import PropTypes from 'prop-types';
 import Card from '../components/Card';
 import '../Card.css';
 
 class Home extends Component {
-  constructor() {
-    super();
-    this.state = {
-      search: '',
-      productList: [],
-    };
-    this.handleInputChange = this.handleInputChange.bind(this);
-  }
-
-  handleInputChange({ target }) {
-    const { name, value } = target;
-    this.setState({ [name]: value });
-  }
-
-  handleSearch = async () => {
-    const { search } = this.state;
-    const listProducts = await getProductsFromCategoryAndQuery(search);
-    const { results } = listProducts;
-    this.setState({ productList: results });
-  }
-
   render() {
-    const { productList } = this.state;
+    const { productList, handleInputChange, handleSearch } = this.props;
+
     return (
       <div className="search">
         <div className="container-input">
@@ -37,14 +17,14 @@ class Home extends Component {
               id="input-pesquisa"
               type="text"
               name="search"
-              onChange={ this.handleInputChange }
+              onChange={ handleInputChange }
             />
           </label>
 
           <button
             data-testid="query-button"
             type="button"
-            onClick={ this.handleSearch }
+            onClick={ handleSearch }
           >
             Buscar
           </button>
@@ -56,17 +36,24 @@ class Home extends Component {
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
         <div className="container-all-cards">
-          { productList.map((products) => (
-            <Card
-              key={ products.id }
-              title={ products.title }
-              price={ products.price }
-              image={ products.thumbnail }
-            />
-          ))}
+          { productList.length !== 0
+            && productList.map((products) => (
+              <Card
+                key={ products.id }
+                title={ products.title }
+                price={ products.price }
+                image={ products.thumbnail }
+              />
+            ))}
         </div>
       </div>);
   }
 }
+
+Home.propTypes = {
+  productList: PropTypes.string.isRequired,
+  handleInputChange: PropTypes.func.isRequired,
+  handleSearch: PropTypes.func.isRequired,
+};
 
 export default Home;
