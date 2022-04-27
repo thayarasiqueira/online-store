@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import Card from '../components/Card';
+import '../Card.css';
 
 class Home extends Component {
   constructor() {
@@ -29,38 +30,41 @@ class Home extends Component {
     const { productList } = this.state;
     return (
       <div className="search">
-        <label htmlFor="input-pesquisa">
-          <input
-            data-testid="query-input"
-            id="input-pesquisa"
-            type="text"
-            name="search"
-            onChange={ this.handleInputChange }
-          />
-        </label>
+        <div className="container-input">
+          <label htmlFor="input-pesquisa">
+            <input
+              data-testid="query-input"
+              id="input-pesquisa"
+              type="text"
+              name="search"
+              onChange={ this.handleInputChange }
+            />
+          </label>
 
+          <button
+            data-testid="query-button"
+            type="button"
+            onClick={ this.handleSearch }
+          >
+            Buscar
+          </button>
+        </div>
         <Link data-testid="shopping-cart-button" to="/shoppingCart"> </Link>
         <p
           data-testid="home-initial-message"
         >
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
-        <ul />
-        <button
-          data-testid="query-button"
-          type="button"
-          onClick={ this.handleSearch }
-        >
-          Buscar
-        </button>
-        { productList.map((products) => (
-          <Card
-            key={ products.id }
-            title={ products.title }
-            price={ products.price }
-            image={ products.thumbnail }
-          />
-        ))}
+        <div className="container-all-cards">
+          { productList.map((products) => (
+            <Card
+              key={ products.id }
+              title={ products.title }
+              price={ products.price }
+              image={ products.thumbnail }
+            />
+          ))}
+        </div>
       </div>);
   }
 }

@@ -8,7 +8,7 @@ import Categories from './components/Categories';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="container-home">
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={ Home } />
