@@ -23,6 +23,7 @@ class ProductDetails extends Component {
   render() {
     const { product } = this.state;
     const { title, thumbnail, price, attributes } = product;
+    console.log(attributes);
     return (
       <div>
         <p data-testid="product-detail-name">{ title }</p>
@@ -30,7 +31,11 @@ class ProductDetails extends Component {
         <p>{ price }</p>
         <ul>
           { attributes && attributes.map((e) => (
-            <li key={ e.id }>{ e.name }</li>
+            <li key={ e.id }>
+              { e.name }
+              :
+              { e.value_name }
+            </li>
           ))}
         </ul>
       </div>
