@@ -5,6 +5,7 @@ import shoppingCart from './pages/ShoppingCart';
 import './App.css';
 import * as api from './services/api';
 import Categories from './components/Categories';
+import ProductDetails from './pages/ProductDetails';
 
 class App extends Component {
   constructor() {
@@ -57,6 +58,7 @@ class App extends Component {
               ) }
             />
             <Route path="/shoppingCart" component={ shoppingCart } />
+            <Route path="/product/:id" component={ ProductDetails } />
           </Switch>
           <Categories func={ this.handleCategorie } />
         </BrowserRouter>
