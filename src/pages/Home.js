@@ -19,7 +19,6 @@ class Home extends Component {
               onChange={ handleInputChange }
             />
           </label>
-
           <button
             data-testid="query-button"
             type="button"
@@ -37,23 +36,26 @@ class Home extends Component {
         <div className="container-all-cards">
           { productList.length !== 0
             && productList.map((products) => (
-              <Card
+              <Link
+                data-testid="product-detail-link"
+                to={ `/product/${products.id}` }
                 key={ products.id }
-                id={ products.id }
-                title={ products.title }
-                price={ products.price }
-                image={ products.thumbnail }
-              />
+              >
+                <Card
+                  key={ products.id }
+                  title={ products.title }
+                  price={ products.price }
+                  image={ products.thumbnail }
+                />
+              </Link>
             ))}
         </div>
       </div>);
   }
 }
-
 Home.propTypes = {
   productList: PropTypes.string.isRequired,
   handleInputChange: PropTypes.func.isRequired,
   handleSearch: PropTypes.func.isRequired,
 };
-
 export default Home;
