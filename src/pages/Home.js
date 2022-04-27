@@ -7,7 +7,6 @@ import '../Card.css';
 class Home extends Component {
   render() {
     const { productList, handleInputChange, handleSearch } = this.props;
-
     return (
       <div className="search">
         <div className="container-input">
@@ -40,6 +39,7 @@ class Home extends Component {
             && productList.map((products) => (
               <Card
                 key={ products.id }
+                id={ products.id }
                 title={ products.title }
                 price={ products.price }
                 image={ products.thumbnail }
