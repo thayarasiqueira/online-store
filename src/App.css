@@ -8,6 +8,20 @@
   flex-direction: column;
 }
 
+.container-input {
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+}
+
+.container-input label {
+  width: 80%;
+}
+
+.container-input label input {
+  width: 90%;
+}
+
 .categories {
   border-radius: 10px;
   box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;

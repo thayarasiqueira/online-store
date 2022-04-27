@@ -1,0 +1,26 @@
+.container-all-cards {
+  align-self: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 80%;
+}
+
+.container-card {
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  margin: 10px;
+  width: 300px;
+}
+
+.container-card img {
+  height: 60px;
+  width: 100px;
+}
+
+.container-card h4, .container-card h3 {
+  margin: 15px;
+}
