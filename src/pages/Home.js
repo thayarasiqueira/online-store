@@ -36,18 +36,13 @@ class Home extends Component {
         <div className="container-all-cards">
           { productList.length !== 0
             && productList.map((products) => (
-              <Link
-                data-testid="product-detail-link"
-                to={ `/product/${products.id}` }
+              <Card
                 key={ products.id }
-              >
-                <Card
-                  key={ products.id }
-                  title={ products.title }
-                  price={ products.price }
-                  image={ products.thumbnail }
-                />
-              </Link>
+                id={ products.id }
+                title={ products.title }
+                price={ products.price }
+                image={ products.thumbnail }
+              />
             ))}
         </div>
       </div>);
