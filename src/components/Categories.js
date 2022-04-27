@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import * as api from '../services/api';
 
 class Categories extends Component {
@@ -18,14 +19,16 @@ class Categories extends Component {
 
   render() {
     const { categories } = this.state;
+    const { func } = this.props;
+
     return (
       <div className="categories">
         <h3>Categorias</h3>
         <ul>
           {categories !== ''
             && categories.map((item) => (
-              <Link to="/" key={ item.id }>
-                <li data-testid="category">
+              <Link to="/" key={ item.id } onClick={ func }>
+                <li data-testid="category" id={ item.id }>
                   {item.name}
                 </li>
               </Link>
@@ -35,5 +38,9 @@ class Categories extends Component {
     );
   }
 }
+
+Categories.propTypes = {
+  func: PropTypes.func.isRequired,
+};
 
 export default Categories;
