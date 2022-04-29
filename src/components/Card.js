@@ -9,11 +9,14 @@ class Card extends Component {
   }
 
   handleClick() {
-    const { id } = this.props;
+    const { title, price, image, id } = this.props;
     // usa o || '[]' para caso não tenha nada, criar array vazio
     const acessarLocalStorage = JSON.parse(localStorage.getItem('id') || '[]');
     // usa os ... para manter o que já tinha e adicionar o novo id clicado
-    localStorage.setItem('id', JSON.stringify([...acessarLocalStorage, id]));
+    localStorage.setItem(
+      'id',
+      JSON.stringify([...acessarLocalStorage, { title, price, image, id }]),
+    );
   }
 
   render() {
