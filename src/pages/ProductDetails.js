@@ -10,9 +10,17 @@ class ProductDetails extends Component {
   }
 
   handleClick = () => {
-    const { match: { params: { id } } } = this.props;
+    const { product } = this.state;
+    const { title, price, image, id } = product;
+    const quantity = 1;
     const acessarLocalStorage = JSON.parse(localStorage.getItem('id') || '[]');
-    localStorage.setItem('id', JSON.stringify([...acessarLocalStorage, id]));
+    localStorage.setItem(
+      'id',
+      JSON.stringify([
+        ...acessarLocalStorage,
+        { title, price, image, id, quantity },
+      ]),
+    );
   }
 
   componentDidMount = async () => {
