@@ -7,7 +7,6 @@ class ShoppingCart extends Component {
     this.state = {
       LocalStorage: [],
       retornoApi: [],
-      Quantity: [],
     };
   }
 
@@ -16,7 +15,6 @@ class ShoppingCart extends Component {
     this.setState({ LocalStorage: [...acessarLocalStorage] }, () => {
       const { LocalStorage } = this.state;
       LocalStorage.map((product) => this.showProducts(product));
-      LocalStorage.map((product) => this.setState({ [product.id]: 1 }));
     });
   }
 
@@ -28,24 +26,35 @@ class ShoppingCart extends Component {
 
   decreaseQuantity = ({ target }) => {
     const { parentNode: { id } } = target;
-    console.log(id);
+    let { retornoApi } = this.state;
 
-    this.setState((prevState) => ({
-      [id]: prevState[id] - 1,
-    }));
+    const product = retornoApi.find((item) => item.id === id);
+    product.quantity -= product.quantity > 1 && 1;
+    const newList = retornoApi.filter((elem) => elem.id !== product.id);
+    retornoApi = [...newList, product];
+
+    this.setState({
+      retornoApi,
+    });
   }
 
   increaseQuantity = ({ target }) => {
     const { parentNode: { id } } = target;
-    console.log(id);
+    let { retornoApi } = this.state;
 
-    this.setState((prevState) => ({
-      [id]: prevState[id] + 1,
-    }));
+    const product = retornoApi.find((item) => item.id === id);
+    product.quantity += 1;
+    const newList = retornoApi.filter((elem) => elem.id !== product.id);
+    retornoApi = [...newList, product];
+
+    this.setState({
+      retornoApi,
+    });
   }
 
   render() {
     const { retornoApi } = this.state;
+
     return (
       <div>
         { retornoApi.length > 0 && retornoApi.map((produto) => (
@@ -60,11 +69,11 @@ class ShoppingCart extends Component {
                 -
               </button>
               <p data-testid="shopping-cart-product-quantity">
-                { this.state[produto.id] }
+                { produto.quantity }
               </p>
               <button
                 type="button"
-                onClick={ this.decreaseQuantity }
+                onClick={ this.increaseQuantity }
                 data-testid="product-increase-quantity"
               >
                 +
