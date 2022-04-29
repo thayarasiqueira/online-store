@@ -9,6 +9,12 @@ class ProductDetails extends Component {
     };
   }
 
+  handleClick = () => {
+    const { match: { params: { id } } } = this.props;
+    const acessarLocalStorage = JSON.parse(localStorage.getItem('id') || '[]');
+    localStorage.setItem('id', JSON.stringify([...acessarLocalStorage, id]));
+  }
+
   componentDidMount = async () => {
     const { match: { params: { id } } } = this.props;
     try {
@@ -23,7 +29,7 @@ class ProductDetails extends Component {
   render() {
     const { product } = this.state;
     const { title, thumbnail, price, attributes } = product;
-    console.log(attributes);
+
     return (
       <div>
         <p data-testid="product-detail-name">{ title }</p>
@@ -38,6 +44,13 @@ class ProductDetails extends Component {
             </li>
           ))}
         </ul>
+        <button
+          type="button"
+          data-testid="product-detail-add-to-cart"
+          onClick={ this.handleClick }
+        >
+          adicionar ao carrinho
+        </button>
       </div>
     );
   }

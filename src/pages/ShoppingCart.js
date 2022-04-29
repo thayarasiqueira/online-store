@@ -41,7 +41,8 @@ class ShoppingCart extends Component {
              <p data-testid="shopping-cart-product-quantity">1</p>
            </div>
          ))}
-         <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
+         { retornoApi.length === 0
+          && <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p> }
          <Link to="/">Retornar</Link>
        </div>
      );
