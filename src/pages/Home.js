@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Card from '../components/Card';
 import Categories from '../components/Categories';
@@ -28,7 +27,6 @@ class Home extends Component {
             Buscar
           </button>
         </div>
-        <Link data-testid="shopping-cart-button" to="/shoppingCart"> </Link>
         <p
           data-testid="home-initial-message"
         >
