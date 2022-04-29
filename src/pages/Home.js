@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Card from '../components/Card';
+import Categories from '../components/Categories';
 import '../Card.css';
 
 class Home extends Component {
   render() {
-    const { productList, handleInputChange, handleSearch } = this.props;
+    const { productList, handleInputChange, handleSearch, handleCategorie } = this.props;
     return (
       <div className="search">
         <div className="container-input">
@@ -27,7 +27,6 @@ class Home extends Component {
             Buscar
           </button>
         </div>
-        <Link data-testid="shopping-cart-button" to="/shoppingCart"> </Link>
         <p
           data-testid="home-initial-message"
         >
@@ -45,6 +44,7 @@ class Home extends Component {
               />
             ))}
         </div>
+        <Categories func={ handleCategorie } />
       </div>);
   }
 }
@@ -52,5 +52,6 @@ Home.propTypes = {
   productList: PropTypes.string.isRequired,
   handleInputChange: PropTypes.func.isRequired,
   handleSearch: PropTypes.func.isRequired,
+  handleCategorie: PropTypes.func.isRequired,
 };
 export default Home;
