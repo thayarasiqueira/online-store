@@ -49,7 +49,7 @@ class Home extends Component {
   }
 }
 Home.propTypes = {
-  productList: PropTypes.string.isRequired,
+  productList: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleInputChange: PropTypes.func.isRequired,
   handleSearch: PropTypes.func.isRequired,
   handleCategorie: PropTypes.func.isRequired,

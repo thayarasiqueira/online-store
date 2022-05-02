@@ -1,0 +1,14 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.line-2 label {
+  display: flex;
+  flex-direction: column;
+}
+
+.comments {
+  border: 1px solid black;
+}

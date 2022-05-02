@@ -13,7 +13,7 @@ class App extends Component {
     super();
 
     this.state = {
-      list: '',
+      list: [],
     };
   }
 
