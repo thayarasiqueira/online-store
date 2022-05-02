@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Evaluation from '../components/Evaluation';
+import Comments from '../components/Comments';
+import '../ProductDetails.css';
 
 class ProductDetails extends Component {
   constructor() {
     super();
     this.state = {
       product: '',
+      evaluations: [],
     };
   }
 
@@ -32,11 +36,21 @@ class ProductDetails extends Component {
     } catch (error) {
       return error;
     }
+
+    this.showEvaluation(id);
+  }
+
+  showEvaluation = (id) => {
+    const storage = JSON.parse(localStorage.getItem('evaluation') || '[]');
+    if (storage.length) {
+      const evaluations = storage.filter((e) => e.id === id);
+      this.setState({ evaluations });
+    }
   }
 
   render() {
-    const { product } = this.state;
-    const { title, thumbnail, price, attributes } = product;
+    const { product, evaluations } = this.state;
+    const { id, title, thumbnail, price, attributes } = product;
 
     return (
       <div>
@@ -46,9 +60,8 @@ class ProductDetails extends Component {
         <ul>
           { attributes && attributes.map((e) => (
             <li key={ e.id }>
-              { e.name }
-              :
-              { e.value_name }
+              <strong>{ `${e.name}: `}</strong>
+              {e.value_name}
             </li>
           ))}
         </ul>
@@ -59,6 +72,8 @@ class ProductDetails extends Component {
         >
           adicionar ao carrinho
         </button>
+        { product && <Evaluation id={ id } showEvaluation={ this.showEvaluation } /> }
+        <Comments evaluations={ evaluations } />
       </div>
     );
   }
