@@ -9,7 +9,7 @@ class Card extends Component {
   }
 
   handleClick() {
-    const { title, price, image, id } = this.props;
+    const { title, price, image, id, cartSize } = this.props;
     const quantity = 1;
     // usa o || '[]' para caso não tenha nada, criar array vazio
     const acessarLocalStorage = JSON.parse(localStorage.getItem('id') || '[]');
@@ -18,6 +18,7 @@ class Card extends Component {
       'id',
       JSON.stringify([...acessarLocalStorage, { title, price, image, id, quantity }]),
     );
+    cartSize();
   }
 
   render() {
@@ -51,6 +52,7 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
+  cartSize: PropTypes.func.isRequired,
 };
 
 export default Card;

@@ -16,6 +16,7 @@ class ProductDetails extends Component {
   handleClick = () => {
     const { product } = this.state;
     const { title, price, image, id } = product;
+    const { cartSize } = this.props;
     const quantity = 1;
     const acessarLocalStorage = JSON.parse(localStorage.getItem('id') || '[]');
     localStorage.setItem(
@@ -25,6 +26,8 @@ class ProductDetails extends Component {
         { title, price, image, id, quantity },
       ]),
     );
+
+    cartSize();
   }
 
   componentDidMount = async () => {
@@ -85,6 +88,7 @@ ProductDetails.propTypes = {
       id: PropTypes.string,
     }).isRequired,
   }).isRequired,
+  cartSize: PropTypes.func.isRequired,
 };
 
 export default ProductDetails;

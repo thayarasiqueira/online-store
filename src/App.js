@@ -14,6 +14,7 @@ class App extends Component {
 
     this.state = {
       list: [],
+      cartSize: 0,
     };
   }
 
@@ -39,13 +40,21 @@ class App extends Component {
     this.setState({ list: results });
   }
 
+  updateCountCart = () => {
+    const storage = JSON.parse(localStorage.getItem('id') || '[]');
+    if (storage.length) {
+      const cartSize = storage.map((e) => e.quantity).reduce((acc, elem) => acc + elem);
+      this.setState({ cartSize });
+    }
+  }
+
   render() {
-    const { list } = this.state;
+    const { list, cartSize } = this.state;
 
     return (
       <div className="container-home">
         <BrowserRouter>
-          <Header />
+          <Header func={ this.updateCountCart } size={ cartSize } />
           <Switch>
             <Route
               exact
@@ -57,11 +66,17 @@ class App extends Component {
                   handleInputChange={ this.handleInputChange }
                   handleSearch={ this.handleSearch }
                   handleCategorie={ this.handleCategorie }
+                  cartSize={ this.updateCountCart }
                 />
               ) }
             />
             <Route path="/shoppingCart" component={ shoppingCart } />
-            <Route path="/product/:id" component={ ProductDetails } />
+            <Route
+              path="/product/:id"
+              render={ (prop) => (
+                <ProductDetails { ...prop } cartSize={ this.updateCountCart } />
+              ) }
+            />
             <Route path="/checkout" component={ Checkout } />
           </Switch>
         </BrowserRouter>
