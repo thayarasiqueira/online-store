@@ -6,7 +6,7 @@ import './App.css';
 import * as api from './services/api';
 import ProductDetails from './pages/ProductDetails';
 import Header from './components/Header';
-import Checkout from './pages/FinalizacaoDeCompra';
+import Checkout from './pages/Checkout';
 
 class App extends Component {
   constructor() {
