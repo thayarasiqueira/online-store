@@ -6,6 +6,7 @@ import './App.css';
 import * as api from './services/api';
 import ProductDetails from './pages/ProductDetails';
 import Header from './components/Header';
+import Checkout from './pages/Checkout';
 
 class App extends Component {
   constructor() {
@@ -61,6 +62,7 @@ class App extends Component {
             />
             <Route path="/shoppingCart" component={ shoppingCart } />
             <Route path="/product/:id" component={ ProductDetails } />
+            <Route path="/checkout" component={ Checkout } />
           </Switch>
         </BrowserRouter>
       </div>
