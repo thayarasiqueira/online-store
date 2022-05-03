@@ -7,6 +7,7 @@ class ShoppingCart extends Component {
     this.state = {
       LocalStorage: [],
       retornoApi: [],
+      isIncreaseQuantityButtonDisable: false,
     };
   }
 
@@ -41,19 +42,26 @@ class ShoppingCart extends Component {
   increaseQuantity = ({ target }) => {
     const { parentNode: { id } } = target;
     let { retornoApi } = this.state;
-
+    const { LocalStorage } = this.state;
     const product = retornoApi.find((item) => item.id === id);
     product.quantity += 1;
     const newList = retornoApi.filter((elem) => elem.id !== product.id);
     retornoApi = [...newList, product];
-
+    LocalStorage.forEach((produto) => (
+      produto.quantity === produto.estoque
+      && this.setState({ retornoApi, isIncreaseQuantityButtonDisable: true }, () => {
+        if (!produto.quantity === produto.estoque) {
+          this.setState({ retornoApi, isIncreaseQuantityButtonDisable: false });
+        }
+      })
+    ));
     this.setState({
       retornoApi,
     });
   }
 
   render() {
-    const { retornoApi } = this.state;
+    const { retornoApi, isIncreaseQuantityButtonDisable } = this.state;
 
     return (
       <div>
@@ -75,6 +83,7 @@ class ShoppingCart extends Component {
                 type="button"
                 onClick={ this.increaseQuantity }
                 data-testid="product-increase-quantity"
+                disabled={ isIncreaseQuantityButtonDisable }
               >
                 +
               </button>

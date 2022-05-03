@@ -40,6 +40,7 @@ class Home extends Component {
               <Card
                 key={ products.id }
                 id={ products.id }
+                estoque={ products.available_quantity }
                 title={ products.title }
                 price={ products.price }
                 image={ products.thumbnail }

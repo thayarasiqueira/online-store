@@ -9,14 +9,16 @@ class Card extends Component {
   }
 
   handleClick() {
-    const { title, price, image, id, cartSize } = this.props;
+    // eslint-disable-next-line camelcase
+    const { title, price, image, id, cartSize, estoque } = this.props;
     const quantity = 1;
     // usa o || '[]' para caso não tenha nada, criar array vazio
     const acessarLocalStorage = JSON.parse(localStorage.getItem('id') || '[]');
     // usa os ... para manter o que já tinha e adicionar o novo id clicado
     localStorage.setItem(
       'id',
-      JSON.stringify([...acessarLocalStorage, { title, price, image, id, quantity }]),
+      JSON.stringify([...acessarLocalStorage,
+        { title, price, image, id, quantity, estoque }]),
     );
     cartSize();
   }
@@ -48,6 +50,7 @@ class Card extends Component {
 }
 
 Card.propTypes = {
+  estoque: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
