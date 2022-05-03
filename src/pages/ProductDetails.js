@@ -15,7 +15,7 @@ class ProductDetails extends Component {
 
   handleClick = () => {
     const { product } = this.state;
-    const { title, price, image, id } = product;
+    const { title, price, image, id, available_quantity: estoque } = product;
     const { cartSize } = this.props;
     const quantity = 1;
     const acessarLocalStorage = JSON.parse(localStorage.getItem('id') || '[]');
@@ -23,7 +23,7 @@ class ProductDetails extends Component {
       'id',
       JSON.stringify([
         ...acessarLocalStorage,
-        { title, price, image, id, quantity },
+        { title, price, image, id, quantity, estoque },
       ]),
     );
 
