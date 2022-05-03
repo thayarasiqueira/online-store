@@ -53,7 +53,7 @@ class ProductDetails extends Component {
 
   render() {
     const { product, evaluations } = this.state;
-    const { id, title, thumbnail, price, attributes } = product;
+    const { id, title, thumbnail, price, attributes, shipping } = product;
 
     return (
       <div>
@@ -68,6 +68,9 @@ class ProductDetails extends Component {
             </li>
           ))}
         </ul>
+        {product && shipping.free_shipping && (
+          <p data-testid="free-shipping">Frete grátis</p>
+        )}
         <button
           type="button"
           data-testid="product-detail-add-to-cart"

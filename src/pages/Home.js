@@ -8,7 +8,6 @@ class Home extends Component {
   render() {
     const { productList, handleInputChange, handleSearch, handleCategorie,
       cartSize } = this.props;
-
     return (
       <div className="search">
         <div className="container-input">
@@ -35,18 +34,22 @@ class Home extends Component {
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
         <div className="container-all-cards">
-          { productList.length !== 0
-            && productList.map((products) => (
-              <Card
-                key={ products.id }
-                id={ products.id }
-                estoque={ products.available_quantity }
-                title={ products.title }
-                price={ products.price }
-                image={ products.thumbnail }
-                cartSize={ cartSize }
-              />
-            ))}
+          {productList.length !== 0
+              && productList.map((products) => {
+                const { id, title, price, thumbnail, shipping, available_quantity: estoque  } = products;
+                return (
+                  <Card
+                    key={ id }
+                    id={ id }
+                    estoque={ estoque }
+                    title={ title }
+                    price={ price }
+                    image={ thumbnail }
+                    cartSize={ cartSize }
+                    freeShipping={ shipping.free_shipping }
+                  />
+                );
+              })}
         </div>
         <Categories func={ handleCategorie } />
       </div>);

@@ -24,7 +24,7 @@ class Card extends Component {
   }
 
   render() {
-    const { title, price, image, id } = this.props;
+    const { title, price, image, id, freeShipping } = this.props;
     return (
       <section data-testid="product" className="container-card">
         <Link
@@ -35,6 +35,7 @@ class Card extends Component {
 
           <h3>{title}</h3>
           <img src={ image } alt={ title } />
+          { freeShipping && <p data-testid="free-shipping">Frete grátis</p> }
           <h4>{ price }</h4>
         </Link>
         <button
@@ -56,6 +57,7 @@ Card.propTypes = {
   price: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
   cartSize: PropTypes.func.isRequired,
+  freeShipping: PropTypes.bool.isRequired,
 };
 
 export default Card;
