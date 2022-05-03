@@ -42,7 +42,6 @@ class ShoppingCart extends Component {
   increaseQuantity = ({ target }) => {
     const { parentNode: { id } } = target;
     let { retornoApi } = this.state;
-    console.log(retornoApi);
     const { LocalStorage } = this.state;
     const product = retornoApi.find((item) => item.id === id);
     product.quantity += 1;
