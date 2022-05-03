@@ -6,7 +6,9 @@ import '../Card.css';
 
 class Home extends Component {
   render() {
-    const { productList, handleInputChange, handleSearch, handleCategorie } = this.props;
+    const { productList, handleInputChange, handleSearch, handleCategorie,
+      cartSize } = this.props;
+
     return (
       <div className="search">
         <div className="container-input">
@@ -41,6 +43,7 @@ class Home extends Component {
                 title={ products.title }
                 price={ products.price }
                 image={ products.thumbnail }
+                cartSize={ cartSize }
               />
             ))}
         </div>
@@ -53,5 +56,6 @@ Home.propTypes = {
   handleInputChange: PropTypes.func.isRequired,
   handleSearch: PropTypes.func.isRequired,
   handleCategorie: PropTypes.func.isRequired,
+  cartSize: PropTypes.func.isRequired,
 };
 export default Home;
