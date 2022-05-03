@@ -36,7 +36,8 @@ class Home extends Component {
         <div className="container-all-cards">
           {productList.length !== 0
               && productList.map((products) => {
-                const { id, title, price, thumbnail, shipping, available_quantity: estoque  } = products;
+                const { id, title, price, thumbnail, shipping,
+                  available_quantity: estoque } = products;
                 return (
                   <Card
                     key={ id }
