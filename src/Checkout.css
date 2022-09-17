@@ -1,4 +1,4 @@
-.btn {
+.btn-checkout {
     color: white;
     font-weight: 400;
     background-color: rgb(45, 45, 196);
@@ -8,7 +8,7 @@
     width: 10rem;
 }
 
-.btn:hover {
+.btn-checkout:hover {
     font-weight: 800;
 }
 

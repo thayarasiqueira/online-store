@@ -23,7 +23,7 @@ class Home extends Component {
             />
           </label>
           <button
-            className="btn"
+            className="btn-search"
             type="button"
             onClick={ handleSearch }
           >

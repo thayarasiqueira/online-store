@@ -86,7 +86,7 @@ class Checkout extends Component {
               />
             </label>
             <label htmlFor="input-address">
-              Endereço: 
+              Endereço:
               <input
                 type="text"
                 id="input-address"
@@ -99,7 +99,7 @@ class Checkout extends Component {
           <button
             type="button"
             id="btn-checkout"
-            className="btn"
+            className="btn-checkout"
           >
             {' '}
             Finalizar compra

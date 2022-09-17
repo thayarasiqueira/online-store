@@ -1,9 +1,10 @@
-.btn {
+.btn-search {
     color: white;
     font-weight: 600;
     background-color: rgb(45, 45, 196);
     border-radius: 0.4rem;
     padding: 0.3rem;
+    margin-top: 0.06rem;
   }
 
   .categories {
@@ -48,13 +49,15 @@
   }
 
   .container-input {
-    align-items: center;
+    text-align: center;
+    align-items:center;
     display: flex;
-    justify-content:center;
+    justify-content:end;
   }
 
   .container-input input {
     width: 18rem;
+    height: 1.5rem;
     border-radius: 0.2rem;
     margin: 0.3rem;
   }
@@ -63,5 +66,4 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    margin-top: 1rem;
   }
