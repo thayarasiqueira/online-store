@@ -56,8 +56,8 @@ class ProductDetails extends Component {
     const { id, title, thumbnail, price, attributes, shipping } = product;
 
     return (
-      <div>
-        <p data-testid="product-detail-name">{ title }</p>
+      <div className="container-product-details">
+        <h2 data-testid="product-detail-name">{ title }</h2>
         <img src={ thumbnail } alt={ title } />
         <p>{ price }</p>
         <ul>
@@ -75,8 +75,9 @@ class ProductDetails extends Component {
           type="button"
           data-testid="product-detail-add-to-cart"
           onClick={ this.handleClick }
+          className="btn"
         >
-          adicionar ao carrinho
+          Adicionar ao carrinho
         </button>
         { product && <Evaluation id={ id } showEvaluation={ this.showEvaluation } /> }
         <Comments evaluations={ evaluations } />

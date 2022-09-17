@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../Checkout.css';
 
 class Checkout extends Component {
   constructor() {
@@ -26,7 +27,7 @@ class Checkout extends Component {
     const { LocalStorage, totalPrice } = this.state;
     console.log(totalPrice);
     return (
-      <div>
+      <div className="container-checkout">
         <section>
           {LocalStorage.length > 0
         && LocalStorage.map((product, index) => (
@@ -85,7 +86,7 @@ class Checkout extends Component {
               />
             </label>
             <label htmlFor="input-address">
-              Endereço:
+              Endereço: 
               <input
                 type="text"
                 id="input-address"
@@ -98,9 +99,10 @@ class Checkout extends Component {
           <button
             type="button"
             id="btn-checkout"
+            className="btn"
           >
             {' '}
-            finalizar compra
+            Finalizar compra
 
           </button>
         </label>

@@ -1,26 +1,46 @@
+.btn-cart {
+  color: white;
+  font-weight: 400;
+  background-color: rgb(45, 45, 196);
+  border-radius: 0.4rem;
+  padding: 0.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.btn-cart:hover {
+  font-weight: 800;
+}
+
 .container-all-cards {
   align-self: space-between;
   display: flex;
   flex-wrap: wrap;
   max-width: 80%;
+  justify-content: center;
 }
 
 .container-card {
   align-items: center;
+  align-self: center;
+  box-shadow: 5px 10px gray;
+  flex-wrap: wrap;
+  justify-content: center;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
-  height: 200px;
-  margin: 10px;
-  width: 300px;
+  height: 26rem;
+  margin: 0.8rem;
+  width: 20rem;
+  text-align: center;
 }
 
 .container-card img {
-  height: 60px;
-  width: 100px;
+  height: 30%;
+  width: 40%;
+  margin-left: 10%;
 }
 
-.container-card h4, .container-card h3 {
-  margin: 15px;
+.container-card p {
+  font-size: small;
 }

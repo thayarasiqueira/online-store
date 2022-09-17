@@ -42,8 +42,9 @@ class Card extends Component {
           type="button"
           data-testid="product-add-to-cart"
           onClick={ this.handleClick }
+          className="btn-cart"
         >
-          adicionar ao carrinho
+          Adicionar ao carrinho
         </button>
       </section>
     );

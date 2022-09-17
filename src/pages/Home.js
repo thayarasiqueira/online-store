@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Card from '../components/Card';
 import Categories from '../components/Categories';
 import '../Card.css';
+import '../Home.css';
 
 class Home extends Component {
   render() {
@@ -17,11 +18,12 @@ class Home extends Component {
               id="input-pesquisa"
               type="text"
               name="search"
+              placeholder="Buscar produtos..."
               onChange={ handleInputChange }
             />
           </label>
           <button
-            data-testid="query-button"
+            className="btn"
             type="button"
             onClick={ handleSearch }
           >
@@ -33,8 +35,9 @@ class Home extends Component {
         >
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
-        <div className="container-all-cards">
-          {productList.length !== 0
+        <div className="container-categories-products">
+          <div className="container-all-cards">
+            {productList.length !== 0
               && productList.map((products) => {
                 const { id, title, price, thumbnail, shipping,
                   available_quantity: estoque } = products;
@@ -51,8 +54,9 @@ class Home extends Component {
                   />
                 );
               })}
+          </div>
+          <Categories func={ handleCategorie } />
         </div>
-        <Categories func={ handleCategorie } />
       </div>);
   }
 }

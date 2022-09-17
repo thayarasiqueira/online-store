@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import '../ShoppingCart.css';
 
 class ShoppingCart extends Component {
   constructor() {
@@ -66,7 +67,7 @@ class ShoppingCart extends Component {
     return (
       <div>
         { retornoApi.length > 0 && retornoApi.map((produto) => (
-          <div key={ produto.id }>
+          <div key={ produto.id } className="container-cart">
             <p data-testid="shopping-cart-product-name">{ produto.title }</p>
             <div id={ produto.id }>
               <button
@@ -92,8 +93,14 @@ class ShoppingCart extends Component {
         ))}
         { retornoApi.length === 0
         && <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p> }
-        <Link to="/">Retornar</Link>
-        <Link to="/checkout" data-testid="checkout-products"> Finalizar Compra</Link>
+        <div className="container-btn-cart">
+          <Link to="/"><button type="button" className="btn-cart">Retornar</button></Link>
+          <Link to="/checkout" data-testid="checkout-products">
+            <button type="button" className="btn-cart">
+              Finalizar Compra
+            </button>
+          </Link>
+        </div>
       </div>
     );
   }

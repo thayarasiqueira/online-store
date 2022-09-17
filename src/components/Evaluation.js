@@ -34,6 +34,7 @@ class Evaluation extends Component {
   render() {
     return (
       <form>
+        Avaliar produto:
         <div className="rating">
           <Rate value="1" change={ this.changeValue } />
           <Rate value="2" change={ this.changeValue } />
@@ -66,6 +67,7 @@ class Evaluation extends Component {
           type="button"
           onClick={ this.saveEvaluation }
           data-testid="submit-review-btn"
+          className="btn"
         >
           Avaliar
         </button>

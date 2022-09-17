@@ -1,0 +1,26 @@
+.btn-cart {
+    color: white;
+    font-weight: 400;
+    background-color: rgb(45, 45, 196);
+    border-radius: 0.4rem;
+    padding: 0.3rem;
+    width: 10rem;
+    margin-top: 3rem;
+    margin-left: 0.3rem;
+}
+
+.btn-cart:hover {
+    font-weight: 800;
+}
+
+.container-cart {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+}
+
+.container-btn-cart {
+    display: flex;
+    justify-content: center;
+}
