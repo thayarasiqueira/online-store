@@ -9,12 +9,16 @@
   color: white;
 }
 
+.container-header h1{
+  margin-top: 2rem;
+}
+
 .shopping-cart-icon-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 1rem;
-  border: 1px solid black;
+  border: 2px outset;
   border-radius: 1rem;
   padding: 0.25rem;
 }

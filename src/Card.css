@@ -5,6 +5,7 @@
   border-radius: 0.4rem;
   padding: 0.3rem;
   margin-bottom: 0.2rem;
+  margin-top: 0;
 }
 
 .btn-cart:hover {
@@ -29,18 +30,24 @@
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
-  height: 26rem;
+  height: 27rem;
   margin: 0.8rem;
   width: 20rem;
   text-align: center;
+}
+
+.container-card h4 {
+  margin-bottom: 0;
 }
 
 .container-card img {
   height: 30%;
   width: 40%;
   margin-left: 10%;
+  margin-bottom: 0;
 }
 
 .container-card p {
   font-size: small;
+  margin-bottom: 0;
 }
