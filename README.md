@@ -1,4 +1,4 @@
-# Shopping Cart
+# Online Store
 
 This project creates a simplified version, without database persistence, of an online store, developing in group its functionalities according to demands defined in a Kanban framework. From these demands, we will have an application where users will be able to
 
