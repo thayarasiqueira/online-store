@@ -13,6 +13,9 @@ The group organized itself through the Kanban method, using Trello to allow all 
 
 Documentation of the API used here: https://developers.mercadolivre.com.br/pt_br/itens-e-buscas
 
+## Technologies
+React, Javascript, CSS
+
 ## Installation
 
 Use the package manager [npm] to install all dependencies.
