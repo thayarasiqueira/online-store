@@ -1,6 +1,6 @@
 # Online Store
 
-This project creates a simplified version, without database persistence, of an online store, developing in group its functionalities according to demands defined in a Kanban framework. From these demands, we will have an application where users will be able to
+This project creates a simplified version, without database persistence, of an online store, developing in group its functionalities according to demands defined in a Kanban framework. The users are able to:
 
 - Search for products by terms and categories from the Mercado Livre API;
 - Interact with the searched products in order to add and remove them from a shopping cart in different quantities;
