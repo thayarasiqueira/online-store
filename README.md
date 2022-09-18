@@ -45,3 +45,4 @@ The page will reload when you make changes.
 You may also see any lint errors in the console.
 
 ## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
