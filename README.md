@@ -1,10 +1,10 @@
 # Online Store
 
 
-*Developed on May 2022*
+(*Developed on May 2022*)
 
-https://user-images.githubusercontent.com/98190097/190927658-215af03f-e30f-4420-a467-58b6c9c8eb00.mp4
 
+![Online-store](https://user-images.githubusercontent.com/98190097/191047840-17824982-61f7-444f-a670-3d6112654784.png)
 
 
 This project creates a simplified version, without database persistence, of an online store, developing in group its functionalities according to demands defined in a Kanban framework. The users are able to:
